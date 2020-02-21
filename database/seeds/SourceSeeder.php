@@ -11,12 +11,14 @@ class SourceSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Source::class)->create([
-        	'settings' => json_encode([
-                'webhook_url' => 'https://discordapp.com/api/webhooks/680253493537275938/WmgI-AhSAu12z60RLKmIWZ86LKZjLsCfe3DjBafW0wh_ar8FuRlkeHS_QzwoqqE5dnzS
-'
-            ])
-        ]);
-
+        if (env('DISCORD_WEBHOOK_URL')) {
+            factory(App\Source::class)->create([
+                'identifier' => 'discord',
+                'name' => 'Discord',
+                'settings' => json_encode([
+                    'webhook_url' => env('DISCORD_WEBHOOK_URL')
+                ])
+            ]);
+        }
     }
 }
