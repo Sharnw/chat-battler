@@ -19,3 +19,5 @@
 * Resolve Battles
 * Discord webhook integration for notifications
 * Populate characters table from Discord channel members
+* Slack integration & ChatSource
+* Investigate real-time message events from Discord via websockets
