@@ -8,3 +8,14 @@
 * Interface with a chatroom via a chatbot and allow players to initiate a brawl with each other.
 * Players of each unique game can progress their characters by brawling and winning special challenges.
 * Login to customize your character, equip items, and progress your abilities.
+
+### Completed
+
+* Basic CRUD for Sources, Games, Characters, Items, and Battles.
+* Modular handling of ChatSources
+
+### Roadmap
+
+* Resolve Battles
+* Discord webhook integration for notifications
+* Populate characters table from Discord channel members
