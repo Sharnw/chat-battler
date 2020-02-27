@@ -15,10 +15,7 @@ Route::redirect('/', '/home');
 
 Auth::routes();
 
-// request a new API token
-Route::post('token/update', 'ApiTokenController@update');
-
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'role:player']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('images', 'ImageController');
 	Route::resource('sources', 'SourceController');

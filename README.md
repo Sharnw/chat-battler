@@ -1,4 +1,10 @@
-## Chat Battler - A whitelabel chatroom brawl API
+## Chat Brawler - A whitelabel chatroom brawl API
+
+### Installation
+
+`php artisan brawl:install`
+
+Follow the promps to create an admin user and optionally seed testing data.
 
 ### Proposed features
 

@@ -34,22 +34,17 @@ const app = new Vue({
 
     methods: {
 
-    	injectApiToken(token) {
-            axios.post('/token/update').then(response => {
-                if(response.data){
-					axios.defaults.headers.common = {
-						'Authorization': 'Bearer ' + response.data.token,
-						'Content-Type': 'application/json',
-						'Accept': 'application/json'
-					};
-                }
-            }).catch(error => {
-
-            });
+    	injectAccessToken(token) {
+            if (token == '') return;
+            axios.defaults.headers.common = {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            };
     	},
     },
 
     created() {
-    	this.injectApiToken();
+    	this.injectAccessToken($('#app_token').val());
     }
 });

@@ -50221,20 +50221,17 @@ Vue.component('game-item-picker', __webpack_require__(/*! ./components/GameItemP
 var app = new Vue({
   el: '#app',
   methods: {
-    injectApiToken: function injectApiToken(token) {
-      axios.post('/token/update').then(function (response) {
-        if (response.data) {
-          axios.defaults.headers.common = {
-            'Authorization': 'Bearer ' + response.data.token,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          };
-        }
-      })["catch"](function (error) {});
+    injectAccessToken: function injectAccessToken(token) {
+      if (token == '') return;
+      axios.defaults.headers.common = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      };
     }
   },
   created: function created() {
-    this.injectApiToken();
+    this.injectAccessToken($('#app_token').val());
   }
 });
 

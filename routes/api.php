@@ -15,11 +15,15 @@ use App\Game;
 |
 */
 
+Route::post('/events/command/discord', function (Request $request) {
+	return 'received';
+})->middleware('client');
 
-Route::group(['middleware' => ['auth:api']], function () {
-	Route::get('/user', function (Request $request) {
-	    return $request->user();
-	});
+
+Route::group(['middleware' => ['auth:api', 'role:player']], function () {
+	// Route::get('/user', function (Request $request) {
+	//     return $request->user();
+	// });
 
 	// Route::get('/games/{id}', function (Request $request, Game $game) {
 	//     return new GameResource($game);
@@ -37,4 +41,3 @@ Route::group(['middleware' => ['auth:api']], function () {
         ], 200);
 	});
 });
-

@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Services\ChatSources\ChatSourcesServiceProvider::class,
+        App\Providers\PermissionsServiceProvider::class,
 
     ],
 

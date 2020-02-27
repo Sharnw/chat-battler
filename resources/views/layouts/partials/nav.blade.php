@@ -14,4 +14,8 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('battles.index') }}">{{ __('Battles') }}</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('sources.index') }}">{{ __('Sources') }}</a>
+    </li>
 </ul>
+<input id="app_token" type="hidden" value="{{ auth()->user()->getAccessToken() }}">

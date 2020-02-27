@@ -11,10 +11,22 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class)->create([
-    		'name' => 'Test User 1',
-    		'email' => 'test@user.com',
+        $adminUser = factory(App\User::class)->create([
+    		'name' => 'Admin User',
+    		'email' => 'admin@user.com',
     		'password' => Hash::make('test1234')
     	]);
+
+        $adminUser->addRole('admin');
+        $adminUser->addRole('player');
+
+        $playerUser = factory(App\User::class)->create([
+            'name' => 'Test Player',
+            'email' => 'player@user.com',
+            'password' => Hash::make('test1234')
+        ]);
+
+        $playerUser->addRole('player');
     }
+
 }
