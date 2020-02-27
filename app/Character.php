@@ -57,7 +57,7 @@ class Character extends Model
     
     public function battles()
     {
-        return $this->belongsToMany(Battle::class, 'battle_character');
+        return $this->belongsToMany(Battle::class, 'battles_characters');
     }
 
     /**
@@ -83,7 +83,7 @@ class Character extends Model
      */
     public function items()
     {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Item::class, 'characters_items');
     }
 
 }

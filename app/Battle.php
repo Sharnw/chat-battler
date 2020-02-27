@@ -46,7 +46,7 @@ class Battle extends Model
      */
     public function characters()
     {
-        return $this->belongsToMany(Character::class);
+        return $this->belongsToMany(Character::class, 'battles_characters');
     }
 
     /**

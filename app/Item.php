@@ -56,6 +56,6 @@ class Item extends Model
      */
     public function characters()
     {
-        return $this->belongsToMany(Item::class, 'character_item');
+        return $this->belongsToMany(Item::class, 'characters_items');
     }
 }

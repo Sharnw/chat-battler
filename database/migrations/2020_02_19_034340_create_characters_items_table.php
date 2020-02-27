@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBattleCharacterTable extends Migration
+class CreateCharactersItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBattleCharacterTable extends Migration
      */
     public function up()
     {
-        Schema::create('battle_character', function (Blueprint $table) {
-            $table->bigInteger('battle_id')->unsigned();
-            $table->foreign('battle_id')->references('id')->on('battles')->onDelete('cascade');
+        Schema::create('characters_items', function (Blueprint $table) {
+            $table->bigInteger('item_id')->unsigned();
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->bigInteger('character_id')->unsigned();
             $table->foreign('character_id')->references('id')->on('characters')->onDelete('cascade');
         });
@@ -28,6 +28,6 @@ class CreateBattleCharacterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('battle_character');
+        Schema::dropIfExists('character_item');
     }
 }
